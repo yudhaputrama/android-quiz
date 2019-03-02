@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph"
+            app:startDestination="@id/mainActivityFragment">
+
+    <fragment android:id="@+id/mainActivityFragment" android:name="com.multimedia.quiz.fragments.MenuFragment"
+              android:label="fragment_main" tools:layout="@layout/fragment_menu">
+        <action android:id="@+id/action_play" app:destination="@id/playFragment"/>
+    </fragment>
+    <fragment android:id="@+id/playFragment" android:name="com.multimedia.quiz.fragments.PlayFragment"
+              android:label="PlayFragment">
+        <action android:id="@+id/end_game_action" app:destination="@id/resultFragment"/>
+    </fragment>
+    <fragment android:id="@+id/resultFragment" android:name="com.multimedia.quiz.fragments.ResultFragment"
+              android:label="ResultFragment">
+        <action android:id="@+id/action_to_menu"
+                app:destination="@id/mainActivityFragment"/>
+        <action android:id="@+id/action_try_again" app:destination="@id/playFragment"/>
+        <argument android:name="wrong" app:argType="integer" android:defaultValue="0"/>
+        <argument android:name="correct" app:argType="integer" android:defaultValue="0"/>
+    </fragment>
+</navigation>
